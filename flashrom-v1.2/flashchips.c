@@ -6630,7 +6630,7 @@ const struct flashchip flashchips[] = {
 
 	{
 		.vendor		= "GigaDevice",
-		.name		= "GD25VQ21B",
+		.name		= "GD25VQ21B",  //Armel just for comparaison
 		.bustype	= BUS_SPI,
 		.manufacture_id	= GIGADEVICE_ID,
 		.model_id	= GIGADEVICE_GD25VQ21B,
@@ -6785,6 +6785,67 @@ const struct flashchip flashchips[] = {
 		.read		= spi_chip_read, /* Fast read (0x0B) and multi I/O supported */
 		.voltage	= {2300, 3600},
 	},
+
+	//Added by Armel Tsannang
+	{
+		.vendor		= "GigaDevice",
+		.name		= "GD5F1GQ5UE",
+		.bustype	= BUS_SPI,
+		.manufacture_id	= GIGADEVICE_ID,
+		.model_id	= GIGADEVICE_GD5F1GQ5UE,
+		.total_size	= 131072, /* 1024 Mb (=> 128 MB) => 1Gb */
+		.page_size	= GIGADEVICE_PAGE_SIZE_ECC_ON,
+		/* Supports SFDP */
+		/* OTP: 1024B total; read 0x48, write 0x42, erase 0x44 */
+		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_QPI,
+		.tested		= TEST_UNTESTED,
+		.probe		= probe_spi_rdid,
+		.probe_timing	= TIMING_ZERO,
+		.block_erasers	=
+		{
+			{
+				.eraseblocks = { { 64 * 1, 1024} },
+				.block_erase = spi_block_erase_d8,
+			}
+		},
+		.printlock	= spi_prettyprint_status_register_bp4_srwd,
+		.unlock		= spi_disable_blockprotect_bp4_srwd, /* TODO: 2nd status reg (read with 0x35) */
+		.write		= spi_chip_write_256,
+		.read		= spi_chip_read, /* Fast read (0x0B) and multi I/O supported */
+		.voltage	= {2700, 3600},
+	},
+
+	//Added by Armel Tsannang
+	{
+		.vendor		= "GigaDevice",
+		.name		= "GD5F1GQ5RE",
+		.bustype	= BUS_SPI,
+		.manufacture_id	= GIGADEVICE_ID,
+		.model_id	= GIGADEVICE_GD5F1GQ5RE,
+		.total_size	= 131072, /* 1024 Mb (=> 128 MB) => 1Gb */
+		.page_size	= GIGADEVICE_PAGE_SIZE_ECC_ON,
+		/* Supports SFDP */
+		/* OTP: 1024B total; read 0x48, write 0x42, erase 0x44 */
+		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP | FEATURE_QPI,
+		.tested		= TEST_UNTESTED,
+		.probe		= probe_spi_rdid,
+		.probe_timing	= TIMING_ZERO,
+		.block_erasers	=
+		{
+			{
+				.eraseblocks = { { 64 * 1, 1024} },
+				.block_erase = spi_block_erase_d8,
+			}
+		},
+		.printlock	= spi_prettyprint_status_register_bp4_srwd,
+		.unlock		= spi_disable_blockprotect_bp4_srwd, /* TODO: 2nd status reg (read with 0x35) */
+		.write		= spi_chip_write_256,
+		.read		= spi_chip_read, /* Fast read (0x0B) and multi I/O supported */
+		.voltage	= {1700, 2000},
+	},
+
+
+
 
 	{
 		.vendor		= "Hyundai",
