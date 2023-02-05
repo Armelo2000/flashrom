@@ -31,7 +31,7 @@
  */
 
 #define GENERIC_MANUF_ID	0xC8	//0xFFFF	/* Check if there is a vendor ID */
-#define GENERIC_DEVICE_ID	0x51	//0xFFFF	/* Only match the vendor ID */
+#define GENERIC_DEVICE_ID	0x41	//0xFFFF	/* Only match the vendor ID */
 #define SFDP_DEVICE_ID		0xFFFE
 #define PROGMANUF_ID		0xFFFE	/* dummy ID for opaque chips behind a programmer */
 #define PROGDEV_ID		0x01	/* dummy ID for opaque chips behind a programmer */
